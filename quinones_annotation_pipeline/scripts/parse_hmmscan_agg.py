@@ -119,7 +119,7 @@ def add_taxonomy(dataframe, dataframe_tax):
     the taxonomy dataframe
     """
     dataframe_tax = get_filenames(dataframe_tax)
-    #print(dataframe_tax['genome'])
+    print(dataframe_tax['genome'])
     dataframe_merged = dataframe.merge(dataframe_tax, on = ['genome'], how="left")
     #print(dataframe_merged)
     return dataframe_merged
@@ -175,11 +175,10 @@ if __name__ == "__main__":
     ### add taxonomy
     if args.tax:
         OUT_TAX = OUT.replace('.tsv', '_tax.tsv')
-        try:
-            TAX = pd.read_csv(args.tax, low_memory=False, index_col=0)
-        except Exception:
-            TAX = pd.read_csv(args.tax, sep='\t', index_col=0)
-        print(TAX)
+        #try:
+        #    TAX = pd.read_csv(args.tax, low_memory=False, index_col=0)
+        #except Exception:
+        TAX = pd.read_csv(args.tax, sep='\t', index_col=0)
         DF_TAX = add_taxonomy(DF_QUIN_CLEAN, TAX)
         DF_TAX.to_csv(OUT_TAX, sep='\t')
 
