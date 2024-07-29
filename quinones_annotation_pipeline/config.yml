@@ -1,0 +1,8 @@
+dataset: "data_test"
+hmm_profiles: "profiles/QuinGenesDB_july2/QuinGenesDB_july24.hmm"
+taxonomy_path: "data/data_test/list_with_taxonomy.tsv"
+
+# filters
+
+ieval: 0.001
+cover: 0.5
